@@ -196,6 +196,39 @@
   .dot-loader span:nth-child(2) { animation-delay: 0.2s; }
   .dot-loader span:nth-child(3) { animation-delay: 0.4s; }
   @keyframes blink { 0%,100%{opacity:0.2} 50%{opacity:1} }
+
+  /* EDIT NAME */
+  .edit-icon { font-size: 13px; color: var(--muted); cursor: pointer; padding: 2px 5px; flex-shrink: 0; transition: color 0.2s; line-height: 1; }
+  .edit-icon:hover { color: var(--accent); }
+  .ex-name-input {
+    font-size: 13px; font-weight: 600; background: none; border: none;
+    border-bottom: 1px solid var(--accent); color: var(--accent);
+    font-family: 'DM Sans', sans-serif; outline: none; width: 100%; padding: 1px 0;
+  }
+  .ex-name.subbed { color: var(--accent); }
+  .sub-label { font-size: 10px; color: var(--muted2); margin-top: 1px; font-style: italic; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  /* BONUS EXERCISE */
+  .bonus-card {
+    background: var(--card); border: 1px dashed var(--accent); border-radius: 12px;
+    margin-bottom: 10px; overflow: hidden;
+  }
+  .bonus-tag { font-size: 9px; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+  .add-ex-btn {
+    width: 100%; margin-top: 4px; margin-bottom: 16px; padding: 11px;
+    background: none; border: 1px dashed var(--border); border-radius: 8px;
+    color: var(--muted2); font-family: 'DM Sans', sans-serif; font-size: 12px;
+    font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.2s;
+  }
+  .add-ex-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+  .bonus-name-inp {
+    background: none; border: none; border-bottom: 1px solid var(--accent);
+    color: var(--accent); font-family: 'DM Sans', sans-serif; font-size: 13px;
+    font-weight: 600; outline: none; width: 100%; padding: 2px 0;
+  }
+  .bonus-name-inp::placeholder { color: var(--muted); font-weight: 400; }
+  .delete-bonus { font-size: 16px; color: var(--muted); cursor: pointer; padding: 2px 6px; transition: color 0.2s; flex-shrink: 0; }
+  .delete-bonus:hover { color: #f87171; }
 </style>
 </head>
 <body>
@@ -232,37 +265,37 @@ const PROGRAM = [
   {
     id:1, label:"D1 · EMPUJE", full:"Día 1 — Empuje", enfoque:"Pecho Primario · Hombros Secundario",
     ejercicios:[
-      {nombre:"Press Inclinado con Barra", series:3, reps:"6–8"},
-      {nombre:"Press con Mancuernas en Plano", series:3, reps:"8–10"},
-      {nombre:"Aperturas en Polea (abajo→arriba)", series:3, reps:"12–15"},
-      {nombre:"Press de Hombros con Mancuernas", series:3, reps:"8–10"},
-      {nombre:"Elevaciones Laterales en Polea", series:3, reps:"15–20"},
-      {nombre:"Extensión de Tríceps Sobre Cabeza", series:3, reps:"12–15"},
-      {nombre:"Jalón de Tríceps en Polea (cuerda)", series:3, reps:"12–15"},
+      {nombre:"Press Inclinado con Barra", series:4, reps:"6–8"},
+      {nombre:"Press con Mancuernas en Plano", series:4, reps:"8–10"},
+      {nombre:"Aperturas en Polea (abajo→arriba)", series:4, reps:"12–15"},
+      {nombre:"Press de Hombros con Mancuernas", series:4, reps:"8–10"},
+      {nombre:"Elevaciones Laterales en Polea", series:4, reps:"15–20"},
+      {nombre:"Extensión de Tríceps Sobre Cabeza", series:4, reps:"12–15"},
+      {nombre:"Jalón de Tríceps en Polea (cuerda)", series:4, reps:"12–15"},
     ]
   },
   {
     id:2, label:"D2 · JALÓN", full:"Día 2 — Jalón", enfoque:"Espalda Primaria · Bíceps Secundario",
     ejercicios:[
-      {nombre:"Dominadas con Peso", series:3, reps:"6–8"},
-      {nombre:"Remo con Soporte de Pecho", series:3, reps:"8–10"},
-      {nombre:"Remo en Polea Sentado (agarre ancho)", series:3, reps:"10–12"},
-      {nombre:"Jalón al Pecho (agarre neutro)", series:3, reps:"10–12"},
-      {nombre:"Face Pull con Cuerda", series:3, reps:"15–20"},
-      {nombre:"Curl con Mancuerna Inclinado", series:3, reps:"10–12"},
-      {nombre:"Curl Martillo", series:3, reps:"12–15"},
+      {nombre:"Dominadas con Peso", series:4, reps:"6–8"},
+      {nombre:"Remo con Soporte de Pecho", series:4, reps:"8–10"},
+      {nombre:"Remo en Polea Sentado (agarre ancho)", series:4, reps:"10–12"},
+      {nombre:"Jalón al Pecho (agarre neutro)", series:4, reps:"10–12"},
+      {nombre:"Face Pull con Cuerda", series:4, reps:"15–20"},
+      {nombre:"Curl con Mancuerna Inclinado", series:4, reps:"10–12"},
+      {nombre:"Curl Martillo", series:4, reps:"12–15"},
     ]
   },
   {
     id:3, label:"D3 · PIERNAS", full:"Día 3 — Piernas", enfoque:"Dominante de Cuádriceps",
     ejercicios:[
       {nombre:"Sentadilla con Barra", series:4, reps:"5–8"},
-      {nombre:"Prensa de Piernas", series:3, reps:"10–12"},
-      {nombre:"Hack Squat / Sentadilla Búlgara", series:3, reps:"10–12"},
-      {nombre:"Extensión de Piernas", series:3, reps:"12–15"},
-      {nombre:"Curl de Piernas Sentado", series:3, reps:"12–15"},
+      {nombre:"Prensa de Piernas", series:4, reps:"10–12"},
+      {nombre:"Hack Squat / Sentadilla Búlgara", series:4, reps:"10–12"},
+      {nombre:"Extensión de Piernas", series:4, reps:"12–15"},
+      {nombre:"Curl de Piernas Sentado", series:4, reps:"12–15"},
       {nombre:"Elevación de Pantorrillas de Pie", series:4, reps:"12–15"},
-      {nombre:"Elevación de Tibial / Pantorrilla Sentado", series:3, reps:"15–20"},
+      {nombre:"Elevación de Tibial / Pantorrilla Sentado", series:4, reps:"15–20"},
     ]
   },
   {
@@ -270,22 +303,22 @@ const PROGRAM = [
     ejercicios:[
       {nombre:"Press Militar con Barra (de pie)", series:4, reps:"5–8"},
       {nombre:"Elevaciones Laterales con Mancuerna", series:4, reps:"15–20"},
-      {nombre:"Elevación Lateral en Polea (cruzado)", series:3, reps:"15–20"},
-      {nombre:"Aperturas Deltoides Posterior (polea)", series:3, reps:"15–20"},
-      {nombre:"Remo al Mentón (barra EZ / polea)", series:3, reps:"12–15"},
-      {nombre:"Press de Banca Agarre Cerrado", series:3, reps:"8–10"},
-      {nombre:"Skull Crusher (barra EZ)", series:3, reps:"10–12"},
+      {nombre:"Elevación Lateral en Polea (cruzado)", series:4, reps:"15–20"},
+      {nombre:"Aperturas Deltoides Posterior (polea)", series:4, reps:"15–20"},
+      {nombre:"Remo al Mentón (barra EZ / polea)", series:4, reps:"12–15"},
+      {nombre:"Press de Banca Agarre Cerrado", series:4, reps:"8–10"},
+      {nombre:"Skull Crusher (barra EZ)", series:4, reps:"10–12"},
     ]
   },
   {
     id:5, label:"D5 · PIERNAS II", full:"Día 5 — Piernas II", enfoque:"Cadena Posterior · Isquiotibiales",
     ejercicios:[
       {nombre:"Peso Muerto Rumano", series:4, reps:"8–10"},
-      {nombre:"Curl de Piernas Acostado", series:3, reps:"10–12"},
-      {nombre:"Curl Nórdico / Curl en GHD", series:3, reps:"6–10"},
-      {nombre:"Hip Thrust con Barra", series:3, reps:"10–12"},
-      {nombre:"Estocadas Caminando (mancuernas)", series:3, reps:"10–12 c/pierna"},
-      {nombre:"Extensión de Piernas (mantenimiento)", series:3, reps:"12–15"},
+      {nombre:"Curl de Piernas Acostado", series:4, reps:"10–12"},
+      {nombre:"Curl Nórdico / Curl en GHD", series:4, reps:"6–10"},
+      {nombre:"Hip Thrust con Barra", series:4, reps:"10–12"},
+      {nombre:"Estocadas Caminando (mancuernas)", series:4, reps:"10–12 c/pierna"},
+      {nombre:"Extensión de Piernas (mantenimiento)", series:4, reps:"12–15"},
       {nombre:"Elevación de Pantorrillas Sentado", series:4, reps:"15–20"},
     ]
   },
@@ -380,6 +413,37 @@ function setAI(w, v) {
   debouncedSave();
 }
 
+// ── NAME OVERRIDES ────────────────────────────────────────────────────
+function getNameOverride(w, d, ei) { return data?.semanas?.[`s${w}`]?.[`d${d}`]?.[`name${ei}`] || ''; }
+function setNameOverride(w, d, ei, v) {
+  if (!data.semanas) data.semanas = {};
+  if (!data.semanas[`s${w}`]) data.semanas[`s${w}`] = {};
+  if (!data.semanas[`s${w}`][`d${d}`]) data.semanas[`s${w}`][`d${d}`] = {};
+  data.semanas[`s${w}`][`d${d}`][`name${ei}`] = v;
+  debouncedSave();
+}
+
+// ── BONUS EXERCISES ───────────────────────────────────────────────────
+function getBonusExercises(w, d) { return data?.semanas?.[`s${w}`]?.[`d${d}`]?.bonus || []; }
+function saveBonusExercises(w, d, arr) {
+  if (!data.semanas) data.semanas = {};
+  if (!data.semanas[`s${w}`]) data.semanas[`s${w}`] = {};
+  if (!data.semanas[`s${w}`][`d${d}`]) data.semanas[`s${w}`][`d${d}`] = {};
+  data.semanas[`s${w}`][`d${d}`].bonus = arr;
+  debouncedSave();
+}
+function getBonusWeight(w, d, bi, si) { return data?.semanas?.[`s${w}`]?.[`d${d}`]?.bonus?.[bi]?.weights?.[si] || ''; }
+function setBonusWeight(w, d, bi, si, v) {
+  if (!data.semanas) data.semanas = {};
+  if (!data.semanas[`s${w}`]) data.semanas[`s${w}`] = {};
+  if (!data.semanas[`s${w}`][`d${d}`]) data.semanas[`s${w}`][`d${d}`] = {};
+  if (!data.semanas[`s${w}`][`d${d}`].bonus) data.semanas[`s${w}`][`d${d}`].bonus = [];
+  if (!data.semanas[`s${w}`][`d${d}`].bonus[bi]) data.semanas[`s${w}`][`d${d}`].bonus[bi] = { nombre: '', weights: [] };
+  if (!data.semanas[`s${w}`][`d${d}`].bonus[bi].weights) data.semanas[`s${w}`][`d${d}`].bonus[bi].weights = [];
+  data.semanas[`s${w}`][`d${d}`].bonus[bi].weights[si] = v;
+  debouncedSave();
+}
+
 // ── WEEK NAV ──────────────────────────────────────────────────────────
 function changeWeek(dir) {
   const n = currentWeek + dir;
@@ -446,6 +510,7 @@ function renderAll() {
       notes.value = getNotes(currentWeek, day.id);
       notes.addEventListener('input', () => setNotes(currentWeek, day.id, notes.value));
     }
+    renderBonusCards(di, day.id);
     updateDayProgress(di, day);
     checkDayComplete(di, day);
   });
@@ -455,6 +520,9 @@ function renderAll() {
 
 function buildDay(day, di) {
   const cards = day.ejercicios.map((ex, ei) => {
+    const override = getNameOverride(currentWeek, day.id, ei);
+    const displayName = override || ex.nombre;
+    const isSubbed = !!override;
     const inputs = Array.from({length: ex.series}, (_, si) =>
       `<div class="set-box">
         <div class="set-lbl">S${si+1}</div>
@@ -466,10 +534,12 @@ function buildDay(day, di) {
       <div class="ex-card" id="card-${di}-${ei}">
         <div class="ex-header" onclick="toggleBody(${di},${ei})">
           <div class="ex-num">${ei+1}</div>
-          <div class="ex-info">
-            <div class="ex-name">${ex.nombre}</div>
+          <div class="ex-info" style="min-width:0;">
+            <div class="ex-name${isSubbed ? ' subbed' : ''}" id="exname-${di}-${ei}">${displayName}</div>
+            ${isSubbed ? `<div class="sub-label">sub: ${ex.nombre}</div>` : ''}
             <div class="ex-meta">${ex.series} series · ${ex.reps} reps</div>
           </div>
+          <span class="edit-icon" onclick="event.stopPropagation();startEdit(${di},${ei},${day.id})" title="Renombrar">✎</span>
           <div class="ex-check">
             <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
               <path d="M1 5L4.5 8.5L11 1" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -496,6 +566,8 @@ function buildDay(day, di) {
     <div class="prog-track"><div class="prog-fill" id="prog-${di}" style="width:0%"></div></div>
     <div class="prog-count" id="cnt-${di}">0 / ${day.ejercicios.length} ejercicios completados</div>
     ${cards}
+    <div id="bonus-container-${di}"></div>
+    <button class="add-ex-btn" onclick="addBonus(${di},${day.id})">+ Agregar Ejercicio Extra</button>
     <textarea class="notes-area" id="notes-${di}" placeholder="Notas de la sesión — PRs, cambios, cómo se sintió..."></textarea>
     <div class="autosave-note">◈ SE GUARDA AUTOMÁTICAMENTE</div>
   `;
@@ -505,13 +577,26 @@ function buildRecap() {
   const savedAI = getAI(currentWeek);
   const cards = PROGRAM.filter(d => d.id !== 6).map(day =>
     day.ejercicios.map((ex, ei) => {
-      // Show average/max weight across sets for recap
+      const override = getNameOverride(currentWeek, day.id, ei);
+      const displayName = override || ex.nombre;
       const weights = Array.from({length: ex.series}, (_, si) => getWeight(currentWeek, day.id, ei, si)).filter(v => v && v !== '');
       const display = weights.length ? Math.max(...weights.map(Number)) : null;
       return `
         <div class="recap-card">
           <div class="rc-day">Día ${day.id}</div>
-          <div class="rc-name">${ex.nombre}</div>
+          <div class="rc-name">${displayName}${override ? ` <span style="color:var(--muted);font-weight:400;font-size:10px;">(sub)</span>` : ''}</div>
+          <div class="rc-weight">${display !== null ? display : '—'}<span class="rc-unit">${display !== null ? ' kg' : ''}</span></div>
+        </div>`;
+    }).join('') +
+    // Bonus exercises in recap
+    getBonusExercises(currentWeek, day.id).map((b, bi) => {
+      if (!b.nombre) return '';
+      const ws = Array.from({length: 3}, (_, si) => getBonusWeight(currentWeek, day.id, bi, si)).filter(Boolean).map(Number);
+      const display = ws.length ? Math.max(...ws) : null;
+      return `
+        <div class="recap-card" style="border-color:var(--accent);border-style:dashed;">
+          <div class="rc-day">Día ${day.id} · EXTRA</div>
+          <div class="rc-name" style="color:var(--accent);">${b.nombre}</div>
           <div class="rc-weight">${display !== null ? display : '—'}<span class="rc-unit">${display !== null ? ' kg' : ''}</span></div>
         </div>`;
     }).join('')
@@ -550,6 +635,96 @@ function buildRecap() {
       </div>
     </div>
   `;
+}
+
+// ── EDIT EXERCISE NAME ────────────────────────────────────────────────
+function startEdit(di, ei, dayId) {
+  const ex = PROGRAM[di].ejercicios[ei];
+  const override = getNameOverride(currentWeek, dayId, ei);
+  const nameEl = document.getElementById(`exname-${di}-${ei}`);
+  const current = override || ex.nombre;
+  nameEl.innerHTML = `<input class="ex-name-input" id="editinp-${di}-${ei}" value="${current}" placeholder="Nombre del ejercicio">`;
+  const inp = document.getElementById(`editinp-${di}-${ei}`);
+  inp.focus(); inp.select();
+  const save = () => {
+    const val = inp.value.trim();
+    setNameOverride(currentWeek, dayId, ei, val === ex.nombre ? '' : val);
+    renderAll();
+    // Re-open the same tab
+    document.querySelectorAll('.tab')[di].click();
+  };
+  inp.addEventListener('keydown', e => { if (e.key === 'Enter') save(); if (e.key === 'Escape') renderAll(); });
+  inp.addEventListener('blur', save);
+}
+
+// ── BONUS EXERCISES ───────────────────────────────────────────────────
+function renderBonusCards(di, dayId) {
+  const container = document.getElementById(`bonus-container-${di}`);
+  if (!container) return;
+  const bonuses = getBonusExercises(currentWeek, dayId);
+  container.innerHTML = bonuses.map((b, bi) => {
+    const sets = 3;
+    const inputs = Array.from({length: sets}, (_, si) =>
+      `<div class="set-box">
+        <div class="set-lbl">S${si+1}</div>
+        <input class="set-inp" id="bonus-inp-${di}-${bi}-${si}" type="number" inputmode="decimal" placeholder="—" min="0" step="2.5">
+        <div class="set-unit">kg</div>
+      </div>`
+    ).join('');
+    return `
+      <div class="bonus-card" id="bonus-card-${di}-${bi}">
+        <div class="ex-header">
+          <div class="ex-num" style="color:var(--accent);font-size:11px;width:auto;padding-right:4px;">EXTRA</div>
+          <div class="ex-info" style="min-width:0;">
+            <input class="bonus-name-inp" id="bonus-name-${di}-${bi}" placeholder="Nombre del ejercicio..." value="${b.nombre || ''}">
+            <div class="ex-meta">3 series · libre</div>
+          </div>
+          <span class="delete-bonus" onclick="deleteBonus(${di},${dayId},${bi})">✕</span>
+        </div>
+        <div class="ex-body">
+          <div class="sets-row">${inputs}</div>
+        </div>
+      </div>`;
+  }).join('');
+
+  // Wire bonus inputs
+  bonuses.forEach((b, bi) => {
+    const nameInp = document.getElementById(`bonus-name-${di}-${bi}`);
+    if (nameInp) {
+      nameInp.addEventListener('input', () => {
+        const arr = getBonusExercises(currentWeek, dayId);
+        if (arr[bi]) arr[bi].nombre = nameInp.value;
+        saveBonusExercises(currentWeek, dayId, arr);
+      });
+    }
+    Array.from({length: 3}).forEach((_, si) => {
+      const inp = document.getElementById(`bonus-inp-${di}-${bi}-${si}`);
+      if (!inp) return;
+      inp.value = getBonusWeight(currentWeek, dayId, bi, si);
+      if (inp.value) inp.classList.add('has-val');
+      inp.addEventListener('input', () => {
+        setBonusWeight(currentWeek, dayId, bi, si, inp.value);
+        inp.classList.toggle('has-val', !!inp.value);
+      });
+    });
+  });
+}
+
+function addBonus(di, dayId) {
+  const arr = getBonusExercises(currentWeek, dayId);
+  arr.push({ nombre: '', weights: [] });
+  saveBonusExercises(currentWeek, dayId, arr);
+  renderBonusCards(di, dayId);
+  // Focus the new name input
+  const newInp = document.getElementById(`bonus-name-${di}-${arr.length - 1}`);
+  if (newInp) newInp.focus();
+}
+
+function deleteBonus(di, dayId, bi) {
+  const arr = getBonusExercises(currentWeek, dayId);
+  arr.splice(bi, 1);
+  saveBonusExercises(currentWeek, dayId, arr);
+  renderBonusCards(di, dayId);
 }
 
 // ── INTERACTIONS ──────────────────────────────────────────────────────
@@ -597,9 +772,19 @@ function exportWeek(target) {
   PROGRAM.filter(d => d.id !== 6).forEach(day => {
     text += `DÍA ${day.id} — ${day.full.toUpperCase()}\n`;
     day.ejercicios.forEach((ex, ei) => {
+      const override = getNameOverride(currentWeek, day.id, ei);
+      const displayName = override ? `${override} (sub: ${ex.nombre})` : ex.nombre;
       const weights = Array.from({length: ex.series}, (_, si) => getWeight(currentWeek, day.id, ei, si));
       const display = weights.map((w, i) => w ? `S${i+1}:${w}kg` : `S${i+1}:—`).join(' ');
-      text += `  ${ex.nombre} (${ex.series}×${ex.reps}): ${display}\n`;
+      text += `  ${displayName} (${ex.series}×${ex.reps}): ${display}\n`;
+    });
+    // Bonus exercises
+    const bonuses = getBonusExercises(currentWeek, day.id);
+    bonuses.forEach((b, bi) => {
+      if (!b.nombre) return;
+      const ws = Array.from({length: 3}, (_, si) => getBonusWeight(currentWeek, day.id, bi, si));
+      const display = ws.map((w, i) => w ? `S${i+1}:${w}kg` : `S${i+1}:—`).join(' ');
+      text += `  [EXTRA] ${b.nombre}: ${display}\n`;
     });
     const notes = getNotes(currentWeek, day.id);
     if (notes) text += `  Notas: ${notes}\n`;
